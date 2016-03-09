@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewClient));
             this.addNewClientBtn = new System.Windows.Forms.Button();
             this.addNewClientTextBox = new System.Windows.Forms.TextBox();
             this.lastnameOfClientLabel = new System.Windows.Forms.Label();
@@ -66,6 +67,7 @@
             this.Controls.Add(this.lastnameOfClientLabel);
             this.Controls.Add(this.addNewClientTextBox);
             this.Controls.Add(this.addNewClientBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewClient";
             this.Text = "Добавить клиента";
             this.ResumeLayout(false);

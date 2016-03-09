@@ -16,16 +16,25 @@ namespace KR_2
             InitializeComponent();
             
         }
-        Clients clients = new Clients();
-        Products products = new Products();
+        Clients clients; 
+        Products products; 
+        NewSales newSales;
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            clients = new Clients();
             clients.Show();
         }
 
         private void productsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            products = new Products();
             products.Show();
+        }
+
+        private void addSales_Click(object sender, EventArgs e)
+        {
+            newSales = new NewSales();
+            newSales.Show();
         }
     }
 }

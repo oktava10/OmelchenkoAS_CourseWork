@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewProduct));
             this.nameOfProduct = new System.Windows.Forms.Label();
             this.nameOfProductTextBox = new System.Windows.Forms.TextBox();
             this.priceOfProductTextBox = new System.Windows.Forms.TextBox();
@@ -86,6 +87,7 @@
             this.Controls.Add(this.priceOfProductTextBox);
             this.Controls.Add(this.nameOfProductTextBox);
             this.Controls.Add(this.nameOfProduct);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "NewProduct";
             this.Text = "Добавить товар";
             this.ResumeLayout(false);
