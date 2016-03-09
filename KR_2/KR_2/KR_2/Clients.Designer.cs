@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CodeOfClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addClient = new System.Windows.Forms.Button();
             this.removeClient = new System.Windows.Forms.Button();
+            this.CodeOfClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,18 +47,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(249, 219);
             this.dataGridView1.TabIndex = 0;
             // 
-            // CodeOfClient
-            // 
-            this.CodeOfClient.HeaderText = "Код";
-            this.CodeOfClient.Name = "CodeOfClient";
-            this.CodeOfClient.ReadOnly = true;
-            // 
-            // Lastname
-            // 
-            this.Lastname.HeaderText = "Фамилия";
-            this.Lastname.Name = "Lastname";
-            this.Lastname.ReadOnly = true;
-            // 
             // addClient
             // 
             this.addClient.Location = new System.Drawing.Point(105, 238);
@@ -67,6 +55,7 @@
             this.addClient.TabIndex = 2;
             this.addClient.Text = "Добавить";
             this.addClient.UseVisualStyleBackColor = true;
+            this.addClient.Click += new System.EventHandler(this.addClient_Click);
             // 
             // removeClient
             // 
@@ -77,6 +66,20 @@
             this.removeClient.Text = "Удалить";
             this.removeClient.UseVisualStyleBackColor = true;
             // 
+            // CodeOfClient
+            // 
+            this.CodeOfClient.HeaderText = "Код";
+            this.CodeOfClient.Name = "CodeOfClient";
+            this.CodeOfClient.ReadOnly = true;
+            this.CodeOfClient.Width = 30;
+            // 
+            // Lastname
+            // 
+            this.Lastname.HeaderText = "Фамилия";
+            this.Lastname.Name = "Lastname";
+            this.Lastname.ReadOnly = true;
+            this.Lastname.Width = 170;
+            // 
             // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -86,7 +89,7 @@
             this.Controls.Add(this.addClient);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Clients";
-            this.Text = "Clients";
+            this.Text = "Клиенты";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -95,9 +98,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Lastname;
         private System.Windows.Forms.Button addClient;
         private System.Windows.Forms.Button removeClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lastname;
     }
 }

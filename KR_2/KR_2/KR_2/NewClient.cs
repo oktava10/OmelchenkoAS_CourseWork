@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace KR_2
 {
-    public partial class Clients : Form
+    public partial class NewClient : Form
     {
-        public Clients()
+        public NewClient()
         {
             InitializeComponent();
-        }
-        NewClient newClientForm = new NewClient();
-        private void addClient_Click(object sender, EventArgs e)
-        {
-            newClientForm.Show();
         }
     }
 }

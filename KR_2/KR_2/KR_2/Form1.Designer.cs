@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.CodeOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DateOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,8 +43,6 @@
             this.addSales = new System.Windows.Forms.Button();
             this.removeSales = new System.Windows.Forms.Button();
             this.autoSave = new System.Windows.Forms.CheckBox();
-            this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -55,8 +58,30 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // clientsToolStripMenuItem
+            // 
+            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
+            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.clientsToolStripMenuItem.Text = "Клиенты";
+            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
+            // 
+            // productsToolStripMenuItem
+            // 
+            this.productsToolStripMenuItem.Name = "productsToolStripMenuItem";
+            this.productsToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.productsToolStripMenuItem.Text = "Товары";
+            this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
+            // 
             // dataGridView1
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodeOfSales,
@@ -64,8 +89,24 @@
             this.CodeOfClientSales,
             this.CodeOfProductSales,
             this.CountSales});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Location = new System.Drawing.Point(12, 27);
             this.dataGridView1.Name = "dataGridView1";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Size = new System.Drawing.Size(575, 181);
             this.dataGridView1.TabIndex = 1;
             // 
@@ -127,20 +168,6 @@
             this.autoSave.TabIndex = 4;
             this.autoSave.Text = "Автосохранение";
             this.autoSave.UseVisualStyleBackColor = true;
-            // 
-            // clientsToolStripMenuItem
-            // 
-            this.clientsToolStripMenuItem.Name = "clientsToolStripMenuItem";
-            this.clientsToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.clientsToolStripMenuItem.Text = "Клиенты";
-            this.clientsToolStripMenuItem.Click += new System.EventHandler(this.clientsToolStripMenuItem_Click);
-            // 
-            // productsToolStripMenuItem
-            // 
-            this.productsToolStripMenuItem.Name = "productsToolStripMenuItem";
-            this.productsToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.productsToolStripMenuItem.Text = "Товары";
-            this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
             // 
             // FSales
             // 

@@ -15,5 +15,10 @@ namespace KR_2
         {
             InitializeComponent();
         }
+        NewProduct newProduct = new NewProduct();
+        private void addNewProductBtn_Click(object sender, EventArgs e)
+        {
+            newProduct.Show();
+        }
     }
 }
