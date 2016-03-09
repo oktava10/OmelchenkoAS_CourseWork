@@ -18,7 +18,7 @@ namespace KR_2
         NewClient newClientForm = new NewClient();
         private void addClient_Click(object sender, EventArgs e)
         {
-            newClientForm.Show();
+            newClientForm.ShowDialog();
         }
     }
 }

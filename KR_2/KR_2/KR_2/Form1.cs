@@ -22,19 +22,19 @@ namespace KR_2
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             clients = new Clients();
-            clients.Show();
+            clients.ShowDialog();
         }
 
         private void productsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             products = new Products();
-            products.Show();
+            products.ShowDialog();
         }
 
         private void addSales_Click(object sender, EventArgs e)
         {
             newSales = new NewSales();
-            newSales.Show();
+            newSales.ShowDialog();
         }
     }
 }
