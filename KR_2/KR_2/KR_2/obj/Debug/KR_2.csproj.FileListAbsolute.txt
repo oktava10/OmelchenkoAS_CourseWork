@@ -7,7 +7,6 @@ D:\OmelchenkoAS_CourseWork\KR_2\KR_2\KR_2\obj\Debug\KR_2.Properties.Resources.re
 D:\OmelchenkoAS_CourseWork\KR_2\KR_2\KR_2\obj\Debug\KR_2.csproj.GenerateResource.Cache
 D:\OmelchenkoAS_CourseWork\KR_2\KR_2\KR_2\obj\Debug\KR_2.exe
 D:\OmelchenkoAS_CourseWork\KR_2\KR_2\KR_2\obj\Debug\KR_2.pdb
-D:\OmelchenkoAS_CourseWork\KR_2\KR_2\KR_2\obj\Debug\KR_2.NewClient.resources
 D:\OmelchenkoAS_CourseWork\KR_2\KR_2\KR_2\obj\Debug\KR_2.Products.resources
 D:\OmelchenkoAS_CourseWork\KR_2\KR_2\KR_2\obj\Debug\KR_2.NewProduct.resources
 D:\OmelchenkoAS_CourseWork\KR_2\KR_2\KR_2\obj\Debug\KR_2.NewSales.resources

@@ -74,7 +74,7 @@
             this.addNewProductBtn.Name = "addNewProductBtn";
             this.addNewProductBtn.Size = new System.Drawing.Size(75, 23);
             this.addNewProductBtn.TabIndex = 4;
-            this.addNewProductBtn.Text = "Добавить";
+            this.addNewProductBtn.Text = "OK";
             this.addNewProductBtn.UseVisualStyleBackColor = true;
             // 
             // NewProduct

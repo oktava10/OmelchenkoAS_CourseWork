@@ -11,29 +11,30 @@ namespace KR_2
 {
     public partial class FSales : Form
     {
+        Clients clients;
+        Products products;
+        NewSales newSales;
         public FSales()
         {
             InitializeComponent();
-            
-        }
-        Clients clients; 
-        Products products; 
-        NewSales newSales;
-        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             clients = new Clients();
+            products = new Products();
+            newSales = new NewSales();
+        }
+        
+        
+        private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
             clients.ShowDialog();
         }
 
         private void productsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            products = new Products();
+        {            
             products.ShowDialog();
         }
 
         private void addSales_Click(object sender, EventArgs e)
         {
-            newSales = new NewSales();
             newSales.ShowDialog();
         }
     }
