@@ -17,8 +17,9 @@ namespace KR_2
         public Clients()
         {
             InitializeComponent();            
-            using (StreamReader fsRead = new StreamReader(StoreStaticVariables.pathToClientDB)) // открываем нашу базу данных по клиентам для чтения и записываем все данные из нее в таблицу "Клиенты", выдергивая последний id элемента в таблице
-            {
+            using (StreamReader fsRead = new StreamReader(StoreStaticVariables.pathToClientDB)) // открываем нашу базу данных по клиентам для чтения и записываем 
+            {                                                                                   // все данные из нее в таблицу "Клиенты", выдергивая последний id 
+                                                                                                // элемента в таблице.
                 string clientElement; // Элемент таблицы "Клиенты" в базе данных
                 string[] tempArray; // Временный массив для разбиения строки, прочитанной из базы данных 
                 while ((clientElement = fsRead.ReadLine()) != null) // Цикл обработки читаемого файла с разбиением и записью в таблицу
@@ -33,9 +34,10 @@ namespace KR_2
         {         
             id_client++; // увеличиваем id на единицу
             clientDataGridView.Rows.Add(id_client, addNewClientTextBox.Text); // добавляем запись в таблицу "Кленты"
-            using (FileStream fs = File.Open(StoreStaticVariables.pathToClientDB, FileMode.Append, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего добавления клиента
-            {
-                Byte[] theClient = new UTF8Encoding(true).GetBytes(id_client + ";" + addNewClientTextBox.Text + ";" + Environment.NewLine); // Подготавливаем для записи в базу данных
+            using (FileStream fs = File.Open(StoreStaticVariables.pathToClientDB, FileMode.Append, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
+            {                                                                                                                         // добавления клиента.
+                Byte[] theClient = new UTF8Encoding(true).GetBytes(id_client + ";" + addNewClientTextBox.Text + ";" + Environment.NewLine); // Подготавливаем для записи 
+                                                                                                                                            // в базу данных.
                 fs.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
             }
             addNewClientTextBox.Clear(); // чистим поле для ввода записи 
