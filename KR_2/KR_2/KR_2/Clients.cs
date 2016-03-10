@@ -34,22 +34,32 @@ namespace KR_2
         {         
             id_client++; // увеличиваем id на единицу
             clientDataGridView.Rows.Add(id_client, addNewClientTextBox.Text); // добавляем запись в таблицу "Кленты"
-            using (FileStream fs = File.Open(StoreStaticVariables.pathToClientDB, FileMode.Append, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
+            using (FileStream fsWriteToAdd = File.Open(StoreStaticVariables.pathToClientDB, FileMode.Append, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
             {                                                                                                                         // добавления клиента.
                 Byte[] theClient = new UTF8Encoding(true).GetBytes(id_client + ";" + addNewClientTextBox.Text + ";" + Environment.NewLine); // Подготавливаем для записи 
                                                                                                                                             // в базу данных.
-                fs.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                fsWriteToAdd.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
             }
             addNewClientTextBox.Clear(); // чистим поле для ввода записи 
         }
 
         private void removeClient_Click(object sender, EventArgs e)
         {
+
             if (clientDataGridView.SelectedRows.Count == clientDataGridView.Rows.Count) {
                 clientDataGridView.Rows.Clear();
             }
             foreach (DataGridViewRow row in clientDataGridView.SelectedRows) {
                 clientDataGridView.Rows.Remove(row);
+            }
+            using (FileStream fsWriteToDelete = File.Open(StoreStaticVariables.pathToClientDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
+            {                                                                                                                         // добавления клиента.
+                for (int i = 0; clientDataGridView.Rows.Count-1 > i; i++) {
+                    Byte[] theClient = new UTF8Encoding(true).GetBytes(clientDataGridView.Rows[i].Cells[0].Value + ";" + 
+                        clientDataGridView.Rows[i].Cells[1].Value + ";" + Environment.NewLine); // Подготавливаем для записи 
+                                                                                          // в базу данных.
+                    fsWriteToDelete.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                }
             }
 
         }
