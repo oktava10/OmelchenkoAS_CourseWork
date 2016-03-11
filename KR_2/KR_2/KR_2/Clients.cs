@@ -16,7 +16,10 @@ namespace KR_2
         int id_client = 0; // id элемента в базе данных и таблице "Клиенты"
         public Clients()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            FSales mainForClients = this.Owner as FSales;
+            if (mainForClients != null) {
+            }
             using (StreamReader fsRead = new StreamReader(StoreStaticVariables.pathToClientDB)) // открываем нашу базу данных по клиентам для чтения и записываем 
             {                                                                                   // все данные из нее в таблицу "Клиенты", выдергивая последний id 
                                                                                                 // элемента в таблице.
@@ -30,6 +33,7 @@ namespace KR_2
                 }
             }
         }
+        
         private void addClient_Click(object sender, EventArgs e)
         {         
             id_client++; // увеличиваем id на единицу

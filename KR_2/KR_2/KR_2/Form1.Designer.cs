@@ -43,8 +43,14 @@
             this.CountSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSales = new System.Windows.Forms.Button();
             this.removeSales = new System.Windows.Forms.Button();
-            this.autoSave = new System.Windows.Forms.CheckBox();
-            this.saveChangesBtn = new System.Windows.Forms.Button();
+            this.dateOfSalesLabel = new System.Windows.Forms.Label();
+            this.codeOfClientLabel = new System.Windows.Forms.Label();
+            this.codeOfProductLabel = new System.Windows.Forms.Label();
+            this.countOfSalesLabel = new System.Windows.Forms.Label();
+            this.dateTimePickerOfSales = new System.Windows.Forms.DateTimePicker();
+            this.codeOfClientSalesTB = new System.Windows.Forms.TextBox();
+            this.codeOfProductSalesTB = new System.Windows.Forms.TextBox();
+            this.countOfSalesTB = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -145,7 +151,7 @@
             // 
             // addSales
             // 
-            this.addSales.Location = new System.Drawing.Point(418, 238);
+            this.addSales.Location = new System.Drawing.Point(419, 263);
             this.addSales.Name = "addSales";
             this.addSales.Size = new System.Drawing.Size(75, 23);
             this.addSales.TabIndex = 2;
@@ -155,40 +161,96 @@
             // 
             // removeSales
             // 
-            this.removeSales.Location = new System.Drawing.Point(512, 238);
+            this.removeSales.Location = new System.Drawing.Point(512, 263);
             this.removeSales.Name = "removeSales";
             this.removeSales.Size = new System.Drawing.Size(75, 23);
             this.removeSales.TabIndex = 3;
             this.removeSales.Text = "Удалить";
             this.removeSales.UseVisualStyleBackColor = true;
             // 
-            // autoSave
+            // dateOfSalesLabel
             // 
-            this.autoSave.AutoSize = true;
-            this.autoSave.Location = new System.Drawing.Point(12, 214);
-            this.autoSave.Name = "autoSave";
-            this.autoSave.Size = new System.Drawing.Size(109, 17);
-            this.autoSave.TabIndex = 4;
-            this.autoSave.Text = "Автосохранение";
-            this.autoSave.UseVisualStyleBackColor = true;
+            this.dateOfSalesLabel.AutoSize = true;
+            this.dateOfSalesLabel.Location = new System.Drawing.Point(12, 211);
+            this.dateOfSalesLabel.Name = "dateOfSalesLabel";
+            this.dateOfSalesLabel.Size = new System.Drawing.Size(80, 13);
+            this.dateOfSalesLabel.TabIndex = 4;
+            this.dateOfSalesLabel.Text = "Дата продажи";
             // 
-            // saveChangesBtn
+            // codeOfClientLabel
             // 
-            this.saveChangesBtn.Enabled = false;
-            this.saveChangesBtn.Location = new System.Drawing.Point(12, 238);
-            this.saveChangesBtn.Name = "saveChangesBtn";
-            this.saveChangesBtn.Size = new System.Drawing.Size(75, 23);
-            this.saveChangesBtn.TabIndex = 5;
-            this.saveChangesBtn.Text = "Сохранить";
-            this.saveChangesBtn.UseVisualStyleBackColor = true;
+            this.codeOfClientLabel.AutoSize = true;
+            this.codeOfClientLabel.Location = new System.Drawing.Point(12, 250);
+            this.codeOfClientLabel.Name = "codeOfClientLabel";
+            this.codeOfClientLabel.Size = new System.Drawing.Size(70, 13);
+            this.codeOfClientLabel.TabIndex = 5;
+            this.codeOfClientLabel.Text = "Код клиента";
+            // 
+            // codeOfProductLabel
+            // 
+            this.codeOfProductLabel.AutoSize = true;
+            this.codeOfProductLabel.Location = new System.Drawing.Point(122, 211);
+            this.codeOfProductLabel.Name = "codeOfProductLabel";
+            this.codeOfProductLabel.Size = new System.Drawing.Size(64, 13);
+            this.codeOfProductLabel.TabIndex = 6;
+            this.codeOfProductLabel.Text = "Код товара";
+            // 
+            // countOfSalesLabel
+            // 
+            this.countOfSalesLabel.AutoSize = true;
+            this.countOfSalesLabel.Location = new System.Drawing.Point(122, 250);
+            this.countOfSalesLabel.Name = "countOfSalesLabel";
+            this.countOfSalesLabel.Size = new System.Drawing.Size(66, 13);
+            this.countOfSalesLabel.TabIndex = 7;
+            this.countOfSalesLabel.Text = "Количество";
+            // 
+            // dateTimePickerOfSales
+            // 
+            this.dateTimePickerOfSales.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerOfSales.Location = new System.Drawing.Point(15, 227);
+            this.dateTimePickerOfSales.Name = "dateTimePickerOfSales";
+            this.dateTimePickerOfSales.Size = new System.Drawing.Size(85, 20);
+            this.dateTimePickerOfSales.TabIndex = 8;
+            // 
+            // codeOfClientSalesTB
+            // 
+            this.codeOfClientSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeOfClientSalesTB.Location = new System.Drawing.Point(15, 266);
+            this.codeOfClientSalesTB.Name = "codeOfClientSalesTB";
+            this.codeOfClientSalesTB.Size = new System.Drawing.Size(32, 20);
+            this.codeOfClientSalesTB.TabIndex = 9;
+            this.codeOfClientSalesTB.Click += new System.EventHandler(this.onClickClientSalesTB);
+            // 
+            // codeOfProductSalesTB
+            // 
+            this.codeOfProductSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeOfProductSalesTB.Location = new System.Drawing.Point(125, 227);
+            this.codeOfProductSalesTB.Name = "codeOfProductSalesTB";
+            this.codeOfProductSalesTB.Size = new System.Drawing.Size(32, 20);
+            this.codeOfProductSalesTB.TabIndex = 10;
+            this.codeOfProductSalesTB.Click += new System.EventHandler(this.onClickProductSalesTB);
+            // 
+            // countOfSalesTB
+            // 
+            this.countOfSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.countOfSalesTB.Location = new System.Drawing.Point(125, 266);
+            this.countOfSalesTB.Name = "countOfSalesTB";
+            this.countOfSalesTB.Size = new System.Drawing.Size(61, 20);
+            this.countOfSalesTB.TabIndex = 11;
             // 
             // FSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 273);
-            this.Controls.Add(this.saveChangesBtn);
-            this.Controls.Add(this.autoSave);
+            this.ClientSize = new System.Drawing.Size(599, 319);
+            this.Controls.Add(this.countOfSalesTB);
+            this.Controls.Add(this.codeOfProductSalesTB);
+            this.Controls.Add(this.codeOfClientSalesTB);
+            this.Controls.Add(this.dateTimePickerOfSales);
+            this.Controls.Add(this.countOfSalesLabel);
+            this.Controls.Add(this.codeOfProductLabel);
+            this.Controls.Add(this.codeOfClientLabel);
+            this.Controls.Add(this.dateOfSalesLabel);
             this.Controls.Add(this.removeSales);
             this.Controls.Add(this.addSales);
             this.Controls.Add(this.dataGridView1);
@@ -216,10 +278,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CountSales;
         private System.Windows.Forms.Button addSales;
         private System.Windows.Forms.Button removeSales;
-        private System.Windows.Forms.CheckBox autoSave;
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productsToolStripMenuItem;
-        private System.Windows.Forms.Button saveChangesBtn;
+        private System.Windows.Forms.Label dateOfSalesLabel;
+        private System.Windows.Forms.Label codeOfClientLabel;
+        private System.Windows.Forms.Label codeOfProductLabel;
+        private System.Windows.Forms.Label countOfSalesLabel;
+        private System.Windows.Forms.DateTimePicker dateTimePickerOfSales;
+        private System.Windows.Forms.TextBox codeOfClientSalesTB;
+        private System.Windows.Forms.TextBox codeOfProductSalesTB;
+        private System.Windows.Forms.TextBox countOfSalesTB;
     }
 }
 

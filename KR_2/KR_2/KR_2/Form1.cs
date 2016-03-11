@@ -18,7 +18,9 @@ namespace KR_2
         {
             InitializeComponent();
             clients = new Clients();
+            clients.Owner = this;
             products = new Products();
+            products.Owner = this;
             newSales = new NewSales();
         }
         
@@ -36,6 +38,17 @@ namespace KR_2
         private void addSales_Click(object sender, EventArgs e)
         {
             newSales.ShowDialog();
+        }
+
+        private void onClickProductSalesTB(object sender, EventArgs e)
+        {
+            
+                         
+        }
+
+        private void onClickClientSalesTB(object sender, EventArgs e)
+        {
+
         }
     }
 }

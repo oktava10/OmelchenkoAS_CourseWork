@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace KR_2
 {
-    public partial class NewProduct : Form
+    public partial class AddCodeOfClient : Form
     {
-        public NewProduct()
+        public AddCodeOfClient()
         {
             InitializeComponent();
         }
