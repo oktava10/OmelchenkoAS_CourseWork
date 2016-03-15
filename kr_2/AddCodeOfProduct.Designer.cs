@@ -32,7 +32,7 @@
             this.CodeOfProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NameOfProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PriceOfProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chooseSelectedBTN = new System.Windows.Forms.Button();
+            this.addCodeOfProductBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.addCodeOfProductDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,26 +72,26 @@
             this.PriceOfProduct.Name = "PriceOfProduct";
             this.PriceOfProduct.ReadOnly = true;
             // 
-            // chooseSelectedBTN
+            // addCodeOfProductBTN
             // 
-            this.chooseSelectedBTN.Location = new System.Drawing.Point(364, 247);
-            this.chooseSelectedBTN.Name = "chooseSelectedBTN";
-            this.chooseSelectedBTN.Size = new System.Drawing.Size(75, 23);
-            this.chooseSelectedBTN.TabIndex = 2;
-            this.chooseSelectedBTN.Text = "OK";
-            this.chooseSelectedBTN.UseVisualStyleBackColor = true;
-            this.chooseSelectedBTN.Click += new System.EventHandler(this.chooseSelectedBTN_Click);
+            this.addCodeOfProductBTN.Location = new System.Drawing.Point(364, 247);
+            this.addCodeOfProductBTN.Name = "addCodeOfProductBTN";
+            this.addCodeOfProductBTN.Size = new System.Drawing.Size(75, 23);
+            this.addCodeOfProductBTN.TabIndex = 2;
+            this.addCodeOfProductBTN.Text = "OK";
+            this.addCodeOfProductBTN.UseVisualStyleBackColor = true;
+            this.addCodeOfProductBTN.Click += new System.EventHandler(this.addCodeOfProductBTN_Click);
             // 
             // AddCodeOfProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 282);
-            this.Controls.Add(this.chooseSelectedBTN);
+            this.Controls.Add(this.addCodeOfProductBTN);
             this.Controls.Add(this.addCodeOfProductDGV);
             this.Name = "AddCodeOfProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddCodeOfProduct";
+            this.Text = "Выбрать продукт";
             ((System.ComponentModel.ISupportInitialize)(this.addCodeOfProductDGV)).EndInit();
             this.ResumeLayout(false);
 
@@ -103,6 +103,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn NameOfProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn PriceOfProduct;
-        private System.Windows.Forms.Button chooseSelectedBTN;
+        private System.Windows.Forms.Button addCodeOfProductBTN;
     }
 }

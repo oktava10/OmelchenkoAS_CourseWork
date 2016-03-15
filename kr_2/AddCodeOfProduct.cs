@@ -26,8 +26,8 @@ namespace KR_2
                 }
             }
         }
-
-        private void chooseSelectedBTN_Click(object sender, EventArgs e)
+                
+        private void addCodeOfProductBTN_Click(object sender, EventArgs e)
         {
 
         }
