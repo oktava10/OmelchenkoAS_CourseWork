@@ -217,6 +217,7 @@
             this.codeOfClientSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeOfClientSalesTB.Location = new System.Drawing.Point(15, 266);
             this.codeOfClientSalesTB.Name = "codeOfClientSalesTB";
+            this.codeOfClientSalesTB.ReadOnly = true;
             this.codeOfClientSalesTB.Size = new System.Drawing.Size(32, 20);
             this.codeOfClientSalesTB.TabIndex = 9;
             this.codeOfClientSalesTB.Click += new System.EventHandler(this.onClickClientSalesTB);

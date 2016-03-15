@@ -123,7 +123,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView clientDataGridView;
+        public System.Windows.Forms.DataGridView clientDataGridView;
         private System.Windows.Forms.Button addClient;
         private System.Windows.Forms.Button removeClient;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfClient;

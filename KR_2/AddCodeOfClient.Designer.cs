@@ -28,25 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.clientDataGridView = new System.Windows.Forms.DataGridView();
+            this.addCodeOfClientDGV = new System.Windows.Forms.DataGridView();
             this.CodeOfClient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lastname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addCodeOfClientbtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.clientDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addCodeOfClientDGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // clientDataGridView
+            // addCodeOfClientDGV
             // 
-            this.clientDataGridView.AllowUserToResizeColumns = false;
-            this.clientDataGridView.AllowUserToResizeRows = false;
-            this.clientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.clientDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.addCodeOfClientDGV.AllowUserToAddRows = false;
+            this.addCodeOfClientDGV.AllowUserToDeleteRows = false;
+            this.addCodeOfClientDGV.AllowUserToResizeColumns = false;
+            this.addCodeOfClientDGV.AllowUserToResizeRows = false;
+            this.addCodeOfClientDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.addCodeOfClientDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodeOfClient,
             this.Lastname});
-            this.clientDataGridView.Location = new System.Drawing.Point(11, 12);
-            this.clientDataGridView.Name = "clientDataGridView";
-            this.clientDataGridView.Size = new System.Drawing.Size(249, 219);
-            this.clientDataGridView.TabIndex = 1;
+            this.addCodeOfClientDGV.Location = new System.Drawing.Point(11, 12);
+            this.addCodeOfClientDGV.Name = "addCodeOfClientDGV";
+            this.addCodeOfClientDGV.ReadOnly = true;
+            this.addCodeOfClientDGV.Size = new System.Drawing.Size(249, 219);
+            this.addCodeOfClientDGV.TabIndex = 1;
             // 
             // CodeOfClient
             // 
@@ -77,10 +80,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(272, 289);
             this.Controls.Add(this.addCodeOfClientbtn);
-            this.Controls.Add(this.clientDataGridView);
+            this.Controls.Add(this.addCodeOfClientDGV);
             this.Name = "AddCodeOfClient";
             this.Text = "AddCodeOfClient";
-            ((System.ComponentModel.ISupportInitialize)(this.clientDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.addCodeOfClientDGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -90,6 +93,6 @@
         private System.Windows.Forms.Button addCodeOfClientbtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lastname;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfClient;
-        private System.Windows.Forms.DataGridView clientDataGridView;
+        private System.Windows.Forms.DataGridView addCodeOfClientDGV;
     }
 }

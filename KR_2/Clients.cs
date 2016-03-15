@@ -17,20 +17,17 @@ namespace KR_2
         public Clients()
         {
             InitializeComponent();
-            FSales mainForClients = this.Owner as FSales;
-            if (mainForClients != null) {
-            }
             using (StreamReader fsRead = new StreamReader(StoreStaticVariables.pathToClientDB)) // открываем нашу базу данных по клиентам для чтения и записываем 
             {                                                                                   // все данные из нее в таблицу "Клиенты", выдергивая последний id 
                                                                                                 // элемента в таблице.
                 string clientElement; // Элемент таблицы "Клиенты" в базе данных
-                string[] tempArray; // Временный массив для разбиения строки, прочитанной из базы данных 
+                string[] tempArray; // Временный массив для разбиения строки, прочитанной из базы данных                 
                 while ((clientElement = fsRead.ReadLine()) != null) // Цикл обработки читаемого файла с разбиением и записью в таблицу
-                {
+                {                   
                     tempArray = clientElement.Split(';'); // Разбить строку на элементы, разделитель ";"
                     clientDataGridView.Rows.Add(tempArray[0], tempArray[1]); // добавляем элементы в таблицу "Клиенты"
                     id_client = Convert.ToInt32(tempArray[0]); // вытаскиваем текущий ID элемента, а в последующем последний ID для его увеличения, конвертируя его
-                }
+                }                
             }
         }
         

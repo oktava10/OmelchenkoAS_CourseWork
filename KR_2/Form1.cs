@@ -14,6 +14,7 @@ namespace KR_2
         Clients clients;
         Products products;
         NewSales newSales;
+        AddCodeOfClient newAddCodeOfClient;
         public FSales()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace KR_2
             products = new Products();
             products.Owner = this;
             newSales = new NewSales();
+            newAddCodeOfClient = new AddCodeOfClient();
         }
         
         
@@ -42,13 +44,12 @@ namespace KR_2
 
         private void onClickProductSalesTB(object sender, EventArgs e)
         {
-            
-                         
+                                     
         }
 
         private void onClickClientSalesTB(object sender, EventArgs e)
         {
-
+            newAddCodeOfClient.ShowDialog();
         }
     }
 }
