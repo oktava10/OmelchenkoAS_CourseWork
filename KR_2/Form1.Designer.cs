@@ -171,7 +171,7 @@
             // dateOfSalesLabel
             // 
             this.dateOfSalesLabel.AutoSize = true;
-            this.dateOfSalesLabel.Location = new System.Drawing.Point(12, 211);
+            this.dateOfSalesLabel.Location = new System.Drawing.Point(111, 211);
             this.dateOfSalesLabel.Name = "dateOfSalesLabel";
             this.dateOfSalesLabel.Size = new System.Drawing.Size(80, 13);
             this.dateOfSalesLabel.TabIndex = 4;
@@ -180,7 +180,7 @@
             // codeOfClientLabel
             // 
             this.codeOfClientLabel.AutoSize = true;
-            this.codeOfClientLabel.Location = new System.Drawing.Point(12, 250);
+            this.codeOfClientLabel.Location = new System.Drawing.Point(12, 263);
             this.codeOfClientLabel.Name = "codeOfClientLabel";
             this.codeOfClientLabel.Size = new System.Drawing.Size(70, 13);
             this.codeOfClientLabel.TabIndex = 5;
@@ -189,7 +189,7 @@
             // codeOfProductLabel
             // 
             this.codeOfProductLabel.AutoSize = true;
-            this.codeOfProductLabel.Location = new System.Drawing.Point(122, 211);
+            this.codeOfProductLabel.Location = new System.Drawing.Point(12, 211);
             this.codeOfProductLabel.Name = "codeOfProductLabel";
             this.codeOfProductLabel.Size = new System.Drawing.Size(64, 13);
             this.codeOfProductLabel.TabIndex = 6;
@@ -198,7 +198,7 @@
             // countOfSalesLabel
             // 
             this.countOfSalesLabel.AutoSize = true;
-            this.countOfSalesLabel.Location = new System.Drawing.Point(122, 250);
+            this.countOfSalesLabel.Location = new System.Drawing.Point(111, 263);
             this.countOfSalesLabel.Name = "countOfSalesLabel";
             this.countOfSalesLabel.Size = new System.Drawing.Size(66, 13);
             this.countOfSalesLabel.TabIndex = 7;
@@ -207,7 +207,7 @@
             // dateTimePickerOfSales
             // 
             this.dateTimePickerOfSales.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerOfSales.Location = new System.Drawing.Point(15, 227);
+            this.dateTimePickerOfSales.Location = new System.Drawing.Point(114, 227);
             this.dateTimePickerOfSales.Name = "dateTimePickerOfSales";
             this.dateTimePickerOfSales.Size = new System.Drawing.Size(85, 20);
             this.dateTimePickerOfSales.TabIndex = 8;
@@ -215,7 +215,7 @@
             // codeOfClientSalesTB
             // 
             this.codeOfClientSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.codeOfClientSalesTB.Location = new System.Drawing.Point(15, 266);
+            this.codeOfClientSalesTB.Location = new System.Drawing.Point(15, 279);
             this.codeOfClientSalesTB.Name = "codeOfClientSalesTB";
             this.codeOfClientSalesTB.ReadOnly = true;
             this.codeOfClientSalesTB.Size = new System.Drawing.Size(32, 20);
@@ -225,7 +225,7 @@
             // codeOfProductSalesTB
             // 
             this.codeOfProductSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.codeOfProductSalesTB.Location = new System.Drawing.Point(125, 227);
+            this.codeOfProductSalesTB.Location = new System.Drawing.Point(15, 227);
             this.codeOfProductSalesTB.Name = "codeOfProductSalesTB";
             this.codeOfProductSalesTB.ReadOnly = true;
             this.codeOfProductSalesTB.Size = new System.Drawing.Size(32, 20);
@@ -235,7 +235,7 @@
             // countOfSalesTB
             // 
             this.countOfSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.countOfSalesTB.Location = new System.Drawing.Point(125, 266);
+            this.countOfSalesTB.Location = new System.Drawing.Point(114, 279);
             this.countOfSalesTB.Name = "countOfSalesTB";
             this.countOfSalesTB.Size = new System.Drawing.Size(61, 20);
             this.countOfSalesTB.TabIndex = 11;
