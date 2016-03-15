@@ -13,10 +13,7 @@ namespace KR_2
     {
         public AddCodeOfClient()
         {
-            InitializeComponent();
-            //foreach (DataGridViewRow row in ClientsProuctsDataGrids.TempDataGridViewClients.Rows) {
-            //   addCodeOfClientDGV.Rows.Add(row);
-            //}
+            InitializeComponent();           
             using (Clients riceveDataFromClient = new Clients()) {
                 foreach (DataGridViewRow row in riceveDataFromClient.clientDataGridView.Rows)
                 {

@@ -227,6 +227,7 @@
             this.codeOfProductSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.codeOfProductSalesTB.Location = new System.Drawing.Point(125, 227);
             this.codeOfProductSalesTB.Name = "codeOfProductSalesTB";
+            this.codeOfProductSalesTB.ReadOnly = true;
             this.codeOfProductSalesTB.Size = new System.Drawing.Size(32, 20);
             this.codeOfProductSalesTB.TabIndex = 10;
             this.codeOfProductSalesTB.Click += new System.EventHandler(this.onClickProductSalesTB);
@@ -259,6 +260,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FSales";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "OmelchenkoAS-Store";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

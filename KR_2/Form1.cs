@@ -12,18 +12,16 @@ namespace KR_2
     public partial class FSales : Form
     {
         Clients clients;
-        Products products;
-        NewSales newSales;
+        Products products;        
         AddCodeOfClient newAddCodeOfClient;
+        AddCodeOfProduct newAddCodeOfProduct;
         public FSales()
         {
             InitializeComponent();
             clients = new Clients();
             clients.Owner = this;
             products = new Products();
-            products.Owner = this;
-            newSales = new NewSales();
-            newAddCodeOfClient = new AddCodeOfClient();
+            products.Owner = this;                       
         }
         
         
@@ -39,17 +37,23 @@ namespace KR_2
 
         private void addSales_Click(object sender, EventArgs e)
         {
-            newSales.ShowDialog();
+                        
         }
 
         private void onClickProductSalesTB(object sender, EventArgs e)
         {
-                                     
+            using (newAddCodeOfProduct = new AddCodeOfProduct())
+            {
+                newAddCodeOfProduct.ShowDialog();
+            }
         }
 
         private void onClickClientSalesTB(object sender, EventArgs e)
         {
-            newAddCodeOfClient.ShowDialog();
+            using (newAddCodeOfClient = new AddCodeOfClient()) {
+                newAddCodeOfClient.ShowDialog();
+            }
+            
         }
     }
 }

@@ -82,7 +82,8 @@
             this.Controls.Add(this.addCodeOfClientbtn);
             this.Controls.Add(this.addCodeOfClientDGV);
             this.Name = "AddCodeOfClient";
-            this.Text = "AddCodeOfClient";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Выбрать продукт";
             ((System.ComponentModel.ISupportInitialize)(this.addCodeOfClientDGV)).EndInit();
             this.ResumeLayout(false);
 

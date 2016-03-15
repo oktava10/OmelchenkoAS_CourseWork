@@ -139,6 +139,7 @@
             this.Controls.Add(this.productDataGridView);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Products";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Товары";
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).EndInit();
             this.ResumeLayout(false);
@@ -148,7 +149,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView productDataGridView;
+        public System.Windows.Forms.DataGridView productDataGridView;
         private System.Windows.Forms.Button addNewProductBtn;
         private System.Windows.Forms.Button removeProductBtn;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfProduct;
