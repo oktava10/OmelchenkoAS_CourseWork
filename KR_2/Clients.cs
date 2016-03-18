@@ -40,13 +40,13 @@ namespace KR_2
                 Byte[] theClient = new UTF8Encoding(true).GetBytes(id_client + ";" + addNewClientTextBox.Text + ";" + Environment.NewLine); // Подготавливаем для записи 
                                                                                                                                             // в базу данных.
                 fsWriteToAdd.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                fsWriteToAdd.Close(); // Закрыли файл 
             }
-            addNewClientTextBox.Clear(); // чистим поле для ввода записи 
+            addNewClientTextBox.Clear(); // чистим поле для ввода записи             
         }
 
         private void removeClient_Click(object sender, EventArgs e)
-        {
-
+        {           
             if (clientDataGridView.SelectedRows.Count == clientDataGridView.Rows.Count) {
                 clientDataGridView.Rows.Clear();
             }
@@ -61,8 +61,9 @@ namespace KR_2
                                                                                           // в базу данных.
                     fsWriteToDelete.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
                 }
+                fsWriteToDelete.Close();
             }
-
+            
         }
     }
 }

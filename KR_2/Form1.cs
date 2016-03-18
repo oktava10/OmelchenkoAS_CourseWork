@@ -35,6 +35,7 @@ namespace KR_2
                     salesDGV.Rows.Add(tempArray[0], tempArray[1], tempArray[2], tempArray[3], tempArray[4]); // добавляем элементы в таблицу "Продажи"
                     id_sales = Convert.ToInt32(tempArray[0]); // вытаскиваем текущий ID элемента, а в последующем последний ID для его увеличения, конвертируя его
                 }
+                fsRead.Close();
             }
         }
         public FSales(string text)
@@ -60,10 +61,11 @@ namespace KR_2
             salesDGV.Rows.Add(id_sales, dateTimePickerOfSales.Text, codeOfClientSalesTB.Text, codeOfProductSalesTB.Text, countOfSalesTB.Text); // добавляем запись в таблицу "Кленты"
             using (FileStream fsWriteToAdd = File.Open(StoreStaticVariables.pathToSalesDB, FileMode.Append, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
             {                                                                                                                         // добавления клиента.
-                Byte[] theClient = new UTF8Encoding(true).GetBytes(id_sales + ";" + dateTimePickerOfSales.Text + ";" + codeOfClientSalesTB.Text 
+                Byte[] theSale = new UTF8Encoding(true).GetBytes(id_sales + ";" + dateTimePickerOfSales.Text + ";" + codeOfClientSalesTB.Text 
                     + ";" + codeOfProductSalesTB.Text + ";" + countOfSalesTB.Text + ";" + Environment.NewLine); // Подготавливаем для записи 
                                                                                                                                             // в базу данных.
-                fsWriteToAdd.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                fsWriteToAdd.Write(theSale, 0, theSale.Length); // записываем данные в базу данных
+                fsWriteToAdd.Close();
             }
             codeOfClientSalesTB.Clear();
             codeOfProductSalesTB.Clear();
@@ -71,7 +73,26 @@ namespace KR_2
         }
         private void removeSales_Click(object sender, EventArgs e)
         {
-
+            if (salesDGV.SelectedRows.Count == salesDGV.Rows.Count)
+            {
+                salesDGV.Rows.Clear();
+            }
+            foreach (DataGridViewRow row in salesDGV.SelectedRows)
+            {
+                salesDGV.Rows.Remove(row);
+            }
+            using (FileStream fsWriteToDelete = File.Open(StoreStaticVariables.pathToSalesDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
+            {                                                                                                                         // добавления клиента.
+                for (int i = 0; salesDGV.Rows.Count - 1 > i; i++)
+                {
+                    Byte[] theClient = new UTF8Encoding(true).GetBytes( salesDGV.Rows[i].Cells[0].Value + ";" +
+                        salesDGV.Rows[i].Cells[1].Value + ";" + salesDGV.Rows[i].Cells[2].Value + ";" + salesDGV.Rows[i].Cells[3].Value + ";" +
+                        salesDGV.Rows[i].Cells[4].Value + ";" + Environment.NewLine); // Подготавливаем для записи 
+                                                                                                // в базу данных.
+                    fsWriteToDelete.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                }
+                fsWriteToDelete.Close();
+            }
         }
 
         private void onClickProductSalesTB(object sender, EventArgs e)
@@ -105,7 +126,15 @@ namespace KR_2
         {
             codeOfProductSalesTB.Text = text;
         }
+        public void deleteEntriesByClientId()
+        {
 
-        
+        }
+        public void deleteEntriesByProductId()
+        {
+
+        }
+
+
     }
 }
