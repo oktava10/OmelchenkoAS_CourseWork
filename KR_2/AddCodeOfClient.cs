@@ -11,18 +11,26 @@ namespace KR_2
 {
     public partial class AddCodeOfClient : Form
     {
-        public AddCodeOfClient()
+        FSales linkToFSalesObjClient;
+        public AddCodeOfClient(FSales refToObj)
         {
-            InitializeComponent();           
-            using (Clients riceveDataFromClient = new Clients()) {
-                foreach (DataGridViewRow row in riceveDataFromClient.clientDataGridView.Rows)
+            InitializeComponent();
+            linkToFSalesObjClient = refToObj;
+            Clients receiveDataFromClient = new Clients();
+                foreach (DataGridViewRow row in receiveDataFromClient.clientDataGridView.Rows)
                 {
                     if (row.Cells[0].Value != null) {
                         addCodeOfClientDGV.Rows.Add(row.Cells[0].Value, row.Cells[1].Value);
                     }
                     
-                }
-            }                       
+                }                              
+        }
+        
+
+        private void addCodeOfClientbtn_Click(object sender, EventArgs e)
+        {
+            linkToFSalesObjClient.setCodeOfClientSalesTB(addCodeOfClientDGV.SelectedCells[0].Value.ToString());
+            Close();
         }
     }
 }

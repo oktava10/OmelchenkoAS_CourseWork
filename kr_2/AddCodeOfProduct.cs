@@ -11,16 +11,18 @@ namespace KR_2
 {
     public partial class AddCodeOfProduct : Form
     {
-        public AddCodeOfProduct()
+        FSales linkToFSalesObjProduct;
+        public AddCodeOfProduct(FSales refToObj)
         {
             InitializeComponent();
+            linkToFSalesObjProduct = refToObj;
             using (Products riceveDataFromProduct = new Products())
             {
                 foreach (DataGridViewRow row in riceveDataFromProduct.productDataGridView.Rows)
                 {
                     if (row.Cells[0].Value != null)
                     {
-                        addCodeOfProductDGV.Rows.Add(row.Cells[0].Value, row.Cells[1].Value);
+                        addCodeOfProductDGV.Rows.Add(row.Cells[0].Value, row.Cells[1].Value, row.Cells[2].Value);
                     }
 
                 }
@@ -29,7 +31,8 @@ namespace KR_2
                 
         private void addCodeOfProductBTN_Click(object sender, EventArgs e)
         {
-
+            linkToFSalesObjProduct.setCodeOfProductSalesTB(addCodeOfProductDGV.SelectedCells[0].Value.ToString());
+            Close();
         }
     }
 }
