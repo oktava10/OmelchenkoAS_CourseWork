@@ -46,6 +46,7 @@
             this.CodeOfClient,
             this.Lastname});
             this.addCodeOfClientDGV.Location = new System.Drawing.Point(11, 12);
+            this.addCodeOfClientDGV.MultiSelect = false;
             this.addCodeOfClientDGV.Name = "addCodeOfClientDGV";
             this.addCodeOfClientDGV.ReadOnly = true;
             this.addCodeOfClientDGV.Size = new System.Drawing.Size(249, 219);
@@ -73,6 +74,7 @@
             this.addCodeOfClientbtn.TabIndex = 2;
             this.addCodeOfClientbtn.Text = "OK";
             this.addCodeOfClientbtn.UseVisualStyleBackColor = true;
+            this.addCodeOfClientbtn.Click += new System.EventHandler(this.addCodeOfClientbtn_Click);
             // 
             // AddCodeOfClient
             // 

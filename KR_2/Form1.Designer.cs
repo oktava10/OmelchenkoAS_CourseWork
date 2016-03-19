@@ -35,12 +35,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.CodeOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodeOfClientSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodeOfProductSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salesDGV = new System.Windows.Forms.DataGridView();
             this.addSales = new System.Windows.Forms.Button();
             this.removeSales = new System.Windows.Forms.Button();
             this.dateOfSalesLabel = new System.Windows.Forms.Label();
@@ -51,8 +46,13 @@
             this.codeOfClientSalesTB = new System.Windows.Forms.TextBox();
             this.codeOfProductSalesTB = new System.Windows.Forms.TextBox();
             this.countOfSalesTB = new System.Windows.Forms.TextBox();
+            this.CodeOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodeOfClientSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodeOfProductSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -80,7 +80,7 @@
             this.productsToolStripMenuItem.Text = "Товары";
             this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
             // 
-            // dataGridView1
+            // salesDGV
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -89,9 +89,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.salesDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.salesDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodeOfSales,
             this.DateOfSales,
             this.CodeOfClientSales,
@@ -104,9 +104,9 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 27);
-            this.dataGridView1.Name = "dataGridView1";
+            this.salesDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.salesDGV.Location = new System.Drawing.Point(12, 27);
+            this.salesDGV.Name = "salesDGV";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -114,40 +114,9 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView1.Size = new System.Drawing.Size(575, 181);
-            this.dataGridView1.TabIndex = 1;
-            // 
-            // CodeOfSales
-            // 
-            this.CodeOfSales.HeaderText = "Код";
-            this.CodeOfSales.Name = "CodeOfSales";
-            this.CodeOfSales.ReadOnly = true;
-            // 
-            // DateOfSales
-            // 
-            this.DateOfSales.HeaderText = "Дата продажи";
-            this.DateOfSales.Name = "DateOfSales";
-            this.DateOfSales.ReadOnly = true;
-            this.DateOfSales.Width = 130;
-            // 
-            // CodeOfClientSales
-            // 
-            this.CodeOfClientSales.HeaderText = "Код клиента";
-            this.CodeOfClientSales.Name = "CodeOfClientSales";
-            this.CodeOfClientSales.ReadOnly = true;
-            // 
-            // CodeOfProductSales
-            // 
-            this.CodeOfProductSales.HeaderText = "Код товара";
-            this.CodeOfProductSales.Name = "CodeOfProductSales";
-            this.CodeOfProductSales.ReadOnly = true;
-            // 
-            // CountSales
-            // 
-            this.CountSales.HeaderText = "Количество";
-            this.CountSales.Name = "CountSales";
-            this.CountSales.ReadOnly = true;
+            this.salesDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.salesDGV.Size = new System.Drawing.Size(575, 181);
+            this.salesDGV.TabIndex = 1;
             // 
             // addSales
             // 
@@ -167,6 +136,7 @@
             this.removeSales.TabIndex = 3;
             this.removeSales.Text = "Удалить";
             this.removeSales.UseVisualStyleBackColor = true;
+            this.removeSales.Click += new System.EventHandler(this.removeSales_Click);
             // 
             // dateOfSalesLabel
             // 
@@ -214,22 +184,24 @@
             // 
             // codeOfClientSalesTB
             // 
-            this.codeOfClientSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeOfClientSalesTB.Cursor = System.Windows.Forms.Cursors.Default;
             this.codeOfClientSalesTB.Location = new System.Drawing.Point(15, 279);
             this.codeOfClientSalesTB.Name = "codeOfClientSalesTB";
             this.codeOfClientSalesTB.ReadOnly = true;
             this.codeOfClientSalesTB.Size = new System.Drawing.Size(32, 20);
             this.codeOfClientSalesTB.TabIndex = 9;
+            this.codeOfClientSalesTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.codeOfClientSalesTB.Click += new System.EventHandler(this.onClickClientSalesTB);
             // 
             // codeOfProductSalesTB
             // 
-            this.codeOfProductSalesTB.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.codeOfProductSalesTB.Cursor = System.Windows.Forms.Cursors.Default;
             this.codeOfProductSalesTB.Location = new System.Drawing.Point(15, 227);
             this.codeOfProductSalesTB.Name = "codeOfProductSalesTB";
             this.codeOfProductSalesTB.ReadOnly = true;
             this.codeOfProductSalesTB.Size = new System.Drawing.Size(32, 20);
             this.codeOfProductSalesTB.TabIndex = 10;
+            this.codeOfProductSalesTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.codeOfProductSalesTB.Click += new System.EventHandler(this.onClickProductSalesTB);
             // 
             // countOfSalesTB
@@ -239,6 +211,41 @@
             this.countOfSalesTB.Name = "countOfSalesTB";
             this.countOfSalesTB.Size = new System.Drawing.Size(61, 20);
             this.countOfSalesTB.TabIndex = 11;
+            // 
+            // CodeOfSales
+            // 
+            this.CodeOfSales.HeaderText = "Код";
+            this.CodeOfSales.Name = "CodeOfSales";
+            this.CodeOfSales.ReadOnly = true;
+            this.CodeOfSales.Width = 30;
+            // 
+            // DateOfSales
+            // 
+            this.DateOfSales.HeaderText = "Дата продажи";
+            this.DateOfSales.Name = "DateOfSales";
+            this.DateOfSales.ReadOnly = true;
+            this.DateOfSales.Width = 130;
+            // 
+            // CodeOfClientSales
+            // 
+            this.CodeOfClientSales.HeaderText = "Код клиента";
+            this.CodeOfClientSales.Name = "CodeOfClientSales";
+            this.CodeOfClientSales.ReadOnly = true;
+            this.CodeOfClientSales.Width = 120;
+            // 
+            // CodeOfProductSales
+            // 
+            this.CodeOfProductSales.HeaderText = "Код товара";
+            this.CodeOfProductSales.Name = "CodeOfProductSales";
+            this.CodeOfProductSales.ReadOnly = true;
+            this.CodeOfProductSales.Width = 120;
+            // 
+            // CountSales
+            // 
+            this.CountSales.HeaderText = "Количество";
+            this.CountSales.Name = "CountSales";
+            this.CountSales.ReadOnly = true;
+            this.CountSales.Width = 120;
             // 
             // FSales
             // 
@@ -255,7 +262,7 @@
             this.Controls.Add(this.dateOfSalesLabel);
             this.Controls.Add(this.removeSales);
             this.Controls.Add(this.addSales);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.salesDGV);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -264,7 +271,7 @@
             this.Text = "OmelchenkoAS-Store";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,12 +280,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfSales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfSales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfClientSales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfProductSales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CountSales;
+        private System.Windows.Forms.DataGridView salesDGV;
         private System.Windows.Forms.Button addSales;
         private System.Windows.Forms.Button removeSales;
         private System.Windows.Forms.ToolStripMenuItem clientsToolStripMenuItem;
@@ -291,6 +293,11 @@
         private System.Windows.Forms.TextBox codeOfClientSalesTB;
         private System.Windows.Forms.TextBox codeOfProductSalesTB;
         private System.Windows.Forms.TextBox countOfSalesTB;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfSales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfSales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfClientSales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfProductSales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountSales;
     }
 }
 

@@ -91,7 +91,7 @@
             this.Controls.Add(this.addCodeOfProductDGV);
             this.Name = "AddCodeOfProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Выбрать продукт";
+            this.Text = "Выбрать товар";
             ((System.ComponentModel.ISupportInitialize)(this.addCodeOfProductDGV)).EndInit();
             this.ResumeLayout(false);
 

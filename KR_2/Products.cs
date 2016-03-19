@@ -31,6 +31,7 @@ namespace KR_2
                     productDataGridView.Rows.Add(tempArray[0], tempArray[1], tempArray[2]); // добавляем элементы в таблицу "Товары"
                     id_product = Convert.ToInt32(tempArray[0]); // вытаскиваем текущий ID элемента, а в последующем последний ID для его увеличения, конвертируя его
                 }
+                fsRead.Close();
             }
         }
         private void addNewProductBtn_Click(object sender, EventArgs e)
@@ -43,6 +44,7 @@ namespace KR_2
                 Byte[] theClient = new UTF8Encoding(true).GetBytes(id_product + ";" + nameOfProductTextBox.Text + ";" +
                     priceOfProductTextBox.Text + ";" + Environment.NewLine); // Подготавливаем для записи в базу данных.
                 fsWriteToAdd.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                fsWriteToAdd.Close();
             }
             nameOfProductTextBox.Clear();
             priceOfProductTextBox.Clear();  // чистим поля для ввода записей
@@ -67,6 +69,7 @@ namespace KR_2
                                                                                                 // в базу данных.
                     fsWriteToDelete.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
                 }
+                fsWriteToDelete.Close();
             }
         }
     }
