@@ -160,6 +160,9 @@ namespace KR_2
 
         }
 
+        private void ChgEntrySalesBTN_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

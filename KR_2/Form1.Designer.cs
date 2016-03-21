@@ -36,6 +36,11 @@
             this.clientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salesDGV = new System.Windows.Forms.DataGridView();
+            this.CodeOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodeOfClientSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodeOfProductSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.addSales = new System.Windows.Forms.Button();
             this.removeSales = new System.Windows.Forms.Button();
             this.dateOfSalesLabel = new System.Windows.Forms.Label();
@@ -46,11 +51,7 @@
             this.codeOfClientSalesTB = new System.Windows.Forms.TextBox();
             this.codeOfProductSalesTB = new System.Windows.Forms.TextBox();
             this.countOfSalesTB = new System.Windows.Forms.TextBox();
-            this.CodeOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOfSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodeOfClientSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodeOfProductSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountSales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChgEntrySalesBTN = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salesDGV)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +118,41 @@
             this.salesDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.salesDGV.Size = new System.Drawing.Size(575, 181);
             this.salesDGV.TabIndex = 1;
+            // 
+            // CodeOfSales
+            // 
+            this.CodeOfSales.HeaderText = "Код";
+            this.CodeOfSales.Name = "CodeOfSales";
+            this.CodeOfSales.ReadOnly = true;
+            this.CodeOfSales.Width = 30;
+            // 
+            // DateOfSales
+            // 
+            this.DateOfSales.HeaderText = "Дата продажи";
+            this.DateOfSales.Name = "DateOfSales";
+            this.DateOfSales.ReadOnly = true;
+            this.DateOfSales.Width = 130;
+            // 
+            // CodeOfClientSales
+            // 
+            this.CodeOfClientSales.HeaderText = "Код клиента";
+            this.CodeOfClientSales.Name = "CodeOfClientSales";
+            this.CodeOfClientSales.ReadOnly = true;
+            this.CodeOfClientSales.Width = 120;
+            // 
+            // CodeOfProductSales
+            // 
+            this.CodeOfProductSales.HeaderText = "Код товара";
+            this.CodeOfProductSales.Name = "CodeOfProductSales";
+            this.CodeOfProductSales.ReadOnly = true;
+            this.CodeOfProductSales.Width = 120;
+            // 
+            // CountSales
+            // 
+            this.CountSales.HeaderText = "Количество";
+            this.CountSales.Name = "CountSales";
+            this.CountSales.ReadOnly = true;
+            this.CountSales.Width = 120;
             // 
             // addSales
             // 
@@ -212,46 +248,22 @@
             this.countOfSalesTB.Size = new System.Drawing.Size(61, 20);
             this.countOfSalesTB.TabIndex = 11;
             // 
-            // CodeOfSales
+            // ChgEntrySalesBTN
             // 
-            this.CodeOfSales.HeaderText = "Код";
-            this.CodeOfSales.Name = "CodeOfSales";
-            this.CodeOfSales.ReadOnly = true;
-            this.CodeOfSales.Width = 30;
-            // 
-            // DateOfSales
-            // 
-            this.DateOfSales.HeaderText = "Дата продажи";
-            this.DateOfSales.Name = "DateOfSales";
-            this.DateOfSales.ReadOnly = true;
-            this.DateOfSales.Width = 130;
-            // 
-            // CodeOfClientSales
-            // 
-            this.CodeOfClientSales.HeaderText = "Код клиента";
-            this.CodeOfClientSales.Name = "CodeOfClientSales";
-            this.CodeOfClientSales.ReadOnly = true;
-            this.CodeOfClientSales.Width = 120;
-            // 
-            // CodeOfProductSales
-            // 
-            this.CodeOfProductSales.HeaderText = "Код товара";
-            this.CodeOfProductSales.Name = "CodeOfProductSales";
-            this.CodeOfProductSales.ReadOnly = true;
-            this.CodeOfProductSales.Width = 120;
-            // 
-            // CountSales
-            // 
-            this.CountSales.HeaderText = "Количество";
-            this.CountSales.Name = "CountSales";
-            this.CountSales.ReadOnly = true;
-            this.CountSales.Width = 120;
+            this.ChgEntrySalesBTN.Location = new System.Drawing.Point(327, 263);
+            this.ChgEntrySalesBTN.Name = "ChgEntrySalesBTN";
+            this.ChgEntrySalesBTN.Size = new System.Drawing.Size(75, 23);
+            this.ChgEntrySalesBTN.TabIndex = 12;
+            this.ChgEntrySalesBTN.Text = "Изменить";
+            this.ChgEntrySalesBTN.UseVisualStyleBackColor = true;
+            this.ChgEntrySalesBTN.Click += new System.EventHandler(this.ChgEntrySalesBTN_Click);
             // 
             // FSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 319);
+            this.Controls.Add(this.ChgEntrySalesBTN);
             this.Controls.Add(this.countOfSalesTB);
             this.Controls.Add(this.codeOfProductSalesTB);
             this.Controls.Add(this.codeOfClientSalesTB);
@@ -298,6 +310,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfClientSales;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeOfProductSales;
         private System.Windows.Forms.DataGridViewTextBoxColumn CountSales;
+        private System.Windows.Forms.Button ChgEntrySalesBTN;
     }
 }
 
