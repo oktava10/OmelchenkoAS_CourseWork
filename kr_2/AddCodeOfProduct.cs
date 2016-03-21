@@ -15,18 +15,15 @@ namespace KR_2
         public AddCodeOfProduct(FSales refToObj)
         {
             InitializeComponent();
-            linkToFSalesObjProduct = refToObj;
-            using (Products riceveDataFromProduct = new Products())
+            linkToFSalesObjProduct = refToObj;            
+            foreach (DataGridViewRow row in linkToFSalesObjProduct.products.productDataGridView.Rows)
             {
-                foreach (DataGridViewRow row in riceveDataFromProduct.productDataGridView.Rows)
+                if (row.Cells[0].Value != null)
                 {
-                    if (row.Cells[0].Value != null)
-                    {
-                        addCodeOfProductDGV.Rows.Add(row.Cells[0].Value, row.Cells[1].Value, row.Cells[2].Value);
-                    }
-
+                    addCodeOfProductDGV.Rows.Add(row.Cells[0].Value, row.Cells[1].Value, row.Cells[2].Value);
                 }
-            }
+
+            }            
         }
                 
         private void addCodeOfProductBTN_Click(object sender, EventArgs e)

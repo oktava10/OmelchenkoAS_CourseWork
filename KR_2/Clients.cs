@@ -14,9 +14,11 @@ namespace KR_2
     public partial class Clients : Form
     {
         int id_client = 0; // id элемента в базе данных и таблице "Клиенты"
-        public Clients()
+        FSales fsValue;
+        public Clients(FSales fs)
         {
             InitializeComponent();
+            fsValue = fs;
             using (StreamReader fsRead = new StreamReader(StoreStaticVariables.pathToClientDB)) // открываем нашу базу данных по клиентам для чтения и записываем 
             {                                                                                   // все данные из нее в таблицу "Клиенты", выдергивая последний id 
                                                                                                 // элемента в таблице.
@@ -29,8 +31,7 @@ namespace KR_2
                     id_client = Convert.ToInt32(tempArray[0]); // вытаскиваем текущий ID элемента, а в последующем последний ID для его увеличения, конвертируя его
                 }                
             }
-        }
-        
+        }       
         private void addClient_Click(object sender, EventArgs e)
         {         
             id_client++; // увеличиваем id на единицу
@@ -46,12 +47,17 @@ namespace KR_2
         }
 
         private void removeClient_Click(object sender, EventArgs e)
-        {           
-            if (clientDataGridView.SelectedRows.Count == clientDataGridView.Rows.Count) {
+        {        
+            if (clientDataGridView.SelectedRows.Count == clientDataGridView.Rows.Count) {                
+                foreach (DataGridViewRow row in clientDataGridView.SelectedRows)
+                {
+                    fsValue.deleteEntriesById(row.Cells[0].Value.ToString(), 2);
+                }
                 clientDataGridView.Rows.Clear();
             }
             foreach (DataGridViewRow row in clientDataGridView.SelectedRows) {
                 clientDataGridView.Rows.Remove(row);
+                fsValue.deleteEntriesById(row.Cells[0].Value.ToString(), 2);
             }
             using (FileStream fsWriteToDelete = File.Open(StoreStaticVariables.pathToClientDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
             {                                                                                                                         // добавления клиента.

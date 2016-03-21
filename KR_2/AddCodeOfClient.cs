@@ -15,17 +15,15 @@ namespace KR_2
         public AddCodeOfClient(FSales refToObj)
         {
             InitializeComponent();
-            linkToFSalesObjClient = refToObj;
-            Clients receiveDataFromClient = new Clients();
-                foreach (DataGridViewRow row in receiveDataFromClient.clientDataGridView.Rows)
+            linkToFSalesObjClient = refToObj;            
+                foreach (DataGridViewRow row in linkToFSalesObjClient.clients.clientDataGridView.Rows)
                 {
                     if (row.Cells[0].Value != null) {
                         addCodeOfClientDGV.Rows.Add(row.Cells[0].Value, row.Cells[1].Value);
                     }
                     
                 }                              
-        }
-        
+        }        
 
         private void addCodeOfClientbtn_Click(object sender, EventArgs e)
         {

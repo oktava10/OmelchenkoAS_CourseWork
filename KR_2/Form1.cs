@@ -6,23 +6,24 @@ using System.Drawing;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Collections;
 using System.Windows.Forms;
 
 namespace KR_2
 {
     public partial class FSales : Form
     {
-        Clients clients;
-        Products products;        
+        public Clients clients;
+        public Products products;        
         AddCodeOfClient newAddCodeOfClient;
         AddCodeOfProduct newAddCodeOfProduct;
         int id_sales = 0; // id элемента в базе данных и таблице "Продажи"
         public FSales()
         {
             InitializeComponent();
-            clients = new Clients();
+            clients = new Clients(this);
             clients.Owner = this;
-            products = new Products();
+            products = new Products(this);
             products.Owner = this;
             using (StreamReader fsRead = new StreamReader(StoreStaticVariables.pathToSalesDB)) // открываем нашу базу данных по клиентам для чтения и записываем 
             {                                                                                   // все данные из нее в таблицу "Продажи", выдергивая последний id 
@@ -37,14 +38,7 @@ namespace KR_2
                 }
                 fsRead.Close();
             }
-        }
-        public FSales(string text)
-        {
-            InitializeComponent();
-            codeOfClientSalesTB.Text = text;
-        }
-        
-        
+        }      
         private void clientsToolStripMenuItem_Click(object sender, EventArgs e)
         {            
             clients.ShowDialog();
@@ -126,12 +120,43 @@ namespace KR_2
         {
             codeOfProductSalesTB.Text = text;
         }
-        public void deleteEntriesByClientId()
+        public void deleteEntriesById(string text, int index)
         {
-
+            ArrayList idOfDeletingEntries = new ArrayList();
+            foreach (DataGridViewRow row in salesDGV.Rows)
+            {
+                if ((row.Cells[index].Value != null) && (row.Cells[index].Value.ToString().Equals(text)))
+                {
+                    idOfDeletingEntries.Add(row);
+                }
+            }
+            foreach (DataGridViewRow row in idOfDeletingEntries)
+            {
+                salesDGV.Rows.Remove(row);                                
+            }
+            using (FileStream fsWriteToDelete = File.Open(StoreStaticVariables.pathToSalesDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
+            {                                                                                                                         // добавления клиента.
+                for (int i = 0; salesDGV.Rows.Count - 1 > i; i++)
+                {
+                    Byte[] theClient = new UTF8Encoding(true).GetBytes(salesDGV.Rows[i].Cells[0].Value + ";" +
+                        salesDGV.Rows[i].Cells[1].Value + ";" + salesDGV.Rows[i].Cells[2].Value + ";" + salesDGV.Rows[i].Cells[3].Value + ";" +
+                        salesDGV.Rows[i].Cells[4].Value + ";" + Environment.NewLine); // Подготавливаем для записи 
+                                                                                      // в базу данных.
+                    fsWriteToDelete.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                }
+                fsWriteToDelete.Close();
+            }
         }
-        public void deleteEntriesByProductId()
+        public void deleteEntriesByProductId(string text)
         {
+            ArrayList idOfDeletingEntries = new ArrayList();
+            foreach (DataGridViewRow row in salesDGV.Rows)
+            {
+                if ((row.Cells[2].Value != null) && (row.Cells[2].Value.ToString().Equals(text)))
+                {
+                    idOfDeletingEntries.Add(row);
+                }
+            }
 
         }
 

@@ -13,13 +13,11 @@ namespace KR_2
     public partial class Products : Form
     {
         int id_product = 0; // id элемента в базе данных и таблице "Товары"
-        public Products()
+        FSales fsValue;
+        public Products(FSales fs)
         {
             InitializeComponent();
-            FSales mainForProducts = this.Owner as FSales;
-            if (mainForProducts != null)
-            {
-            }
+            fsValue = fs;
             using (StreamReader fsRead = new StreamReader(StoreStaticVariables.pathToProductDB)) // открываем нашу базу данных по товарам для чтения и записываем 
             {                                                                                   // все данные из нее в таблицу "Товары", выдергивая последний id 
                                                                                                 // элемента в таблице.
@@ -54,11 +52,16 @@ namespace KR_2
         {
             if (productDataGridView.SelectedRows.Count == productDataGridView.Rows.Count)
             {
+                foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+                {
+                    fsValue.deleteEntriesById(row.Cells[0].Value.ToString(), 3);
+                }
                 productDataGridView.Rows.Clear();
             }
             foreach (DataGridViewRow row in productDataGridView.SelectedRows)
             {
                 productDataGridView.Rows.Remove(row);
+                fsValue.deleteEntriesById(row.Cells[0].Value.ToString(), 3);
             }
             using (FileStream fsWriteToDelete = File.Open(StoreStaticVariables.pathToProductDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
             {                                                                                                                         // добавления клиента.
