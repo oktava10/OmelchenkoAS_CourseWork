@@ -17,6 +17,7 @@ namespace KR_2
         public Products products;        
         AddCodeOfClient newAddCodeOfClient;
         AddCodeOfProduct newAddCodeOfProduct;
+        ChangEntrySales changeEntryValue;
         int id_sales = 0; // id элемента в базе данных и таблице "Продажи"
         public FSales()
         {
@@ -162,7 +163,10 @@ namespace KR_2
 
         private void ChgEntrySalesBTN_Click(object sender, EventArgs e)
         {
-
+            using (changeEntryValue = new ChangEntrySales(this))
+            {
+                changeEntryValue.ShowDialog();
+            }
         }
     }
 }
