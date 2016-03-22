@@ -16,8 +16,7 @@ namespace KR_2
         public Clients clients;
         public Products products;        
         AddCodeOfClient newAddCodeOfClient;
-        AddCodeOfProduct newAddCodeOfProduct;
-        ChangEntrySales changeEntryValue;
+        AddCodeOfProduct newAddCodeOfProduct;        
         int id_sales = 0; // id элемента в базе данных и таблице "Продажи"
         public FSales()
         {
@@ -137,7 +136,7 @@ namespace KR_2
             }
             using (FileStream fsWriteToDelete = File.Open(StoreStaticVariables.pathToSalesDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
             {                                                                                                                         // добавления клиента.
-                for (int i = 0; salesDGV.Rows.Count - 1 > i; i++)
+                for (int i = 0; salesDGV.Rows.Count > i; i++)
                 {
                     Byte[] theClient = new UTF8Encoding(true).GetBytes(salesDGV.Rows[i].Cells[0].Value + ";" +
                         salesDGV.Rows[i].Cells[1].Value + ";" + salesDGV.Rows[i].Cells[2].Value + ";" + salesDGV.Rows[i].Cells[3].Value + ";" +
@@ -162,10 +161,43 @@ namespace KR_2
         }
 
         private void ChgEntrySalesBTN_Click(object sender, EventArgs e)
-        {
-            using (changeEntryValue = new ChangEntrySales(this))
+        {           
+            if (salesDGV.SelectedRows.Count == 1)
             {
-                changeEntryValue.ShowDialog();
+                foreach (DataGridViewRow row in salesDGV.SelectedRows)
+                {
+                    row.Cells[1].Value = dateTimePickerOfSales.Text;
+                    row.Cells[2].Value = codeOfClientSalesTB.Text;
+                    row.Cells[3].Value = codeOfProductSalesTB.Text;
+                    row.Cells[4].Value = countOfSalesTB.Text;
+                }                
+            }
+            using (FileStream fsWriteToChange = File.Open(StoreStaticVariables.pathToSalesDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
+            {                                                                                                                         // добавления клиента.
+                for (int i = 0; salesDGV.Rows.Count > i; i++)
+                {
+                    Byte[] theClient = new UTF8Encoding(true).GetBytes(salesDGV.Rows[i].Cells[0].Value + ";" +
+                        salesDGV.Rows[i].Cells[1].Value + ";" + salesDGV.Rows[i].Cells[2].Value + ";" + salesDGV.Rows[i].Cells[3].Value + ";" +
+                        salesDGV.Rows[i].Cells[4].Value + ";" + Environment.NewLine); // Подготавливаем для записи 
+                                                                                      // в базу данных.
+                    fsWriteToChange.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                }
+                fsWriteToChange.Close();
+            }
+
+        }
+
+        private void entryChangeSalesDGV(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (salesDGV.SelectedRows.Count == 1)
+            {
+                foreach (DataGridViewRow row in salesDGV.SelectedRows)
+                {
+                    dateTimePickerOfSales.Text = row.Cells[1].Value.ToString();
+                    codeOfClientSalesTB.Text = row.Cells[2].Value.ToString();
+                    codeOfProductSalesTB.Text = row.Cells[3].Value.ToString();
+                    countOfSalesTB.Text = row.Cells[4].Value.ToString();                    
+                }            
             }
         }
     }

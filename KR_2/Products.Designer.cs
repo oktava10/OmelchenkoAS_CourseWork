@@ -39,11 +39,13 @@
             this.priceOfProductTextBox = new System.Windows.Forms.TextBox();
             this.nameOfProductTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.changeProductBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // productDataGridView
             // 
+            this.productDataGridView.AllowUserToAddRows = false;
             this.productDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodeOfProduct,
@@ -53,6 +55,7 @@
             this.productDataGridView.Name = "productDataGridView";
             this.productDataGridView.Size = new System.Drawing.Size(427, 221);
             this.productDataGridView.TabIndex = 0;
+            this.productDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.entryChangeProductDGV);
             // 
             // CodeOfProduct
             // 
@@ -125,11 +128,22 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Наименование товара";
             // 
+            // changeProductBTN
+            // 
+            this.changeProductBTN.Location = new System.Drawing.Point(202, 312);
+            this.changeProductBTN.Name = "changeProductBTN";
+            this.changeProductBTN.Size = new System.Drawing.Size(75, 23);
+            this.changeProductBTN.TabIndex = 8;
+            this.changeProductBTN.Text = "Изменить";
+            this.changeProductBTN.UseVisualStyleBackColor = true;
+            this.changeProductBTN.Click += new System.EventHandler(this.changeProductBTN_Click);
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(451, 341);
+            this.Controls.Add(this.changeProductBTN);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.priceOfProductTextBox);
             this.Controls.Add(this.nameOfProductTextBox);
@@ -159,5 +173,6 @@
         private System.Windows.Forms.TextBox priceOfProductTextBox;
         private System.Windows.Forms.TextBox nameOfProductTextBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button changeProductBTN;
     }
 }

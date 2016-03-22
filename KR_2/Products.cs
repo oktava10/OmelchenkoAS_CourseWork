@@ -65,7 +65,7 @@ namespace KR_2
             }
             using (FileStream fsWriteToDelete = File.Open(StoreStaticVariables.pathToProductDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
             {                                                                                                                         // добавления клиента.
-                for (int i = 0; productDataGridView.Rows.Count - 1 > i; i++)
+                for (int i = 0; productDataGridView.Rows.Count > i; i++)
                 {
                     Byte[] theClient = new UTF8Encoding(true).GetBytes(productDataGridView.Rows[i].Cells[0].Value + ";" +
                         productDataGridView.Rows[i].Cells[1].Value + ";" + productDataGridView.Rows[i].Cells[2].Value + ";" + Environment.NewLine); // Подготавливаем для записи 
@@ -73,6 +73,41 @@ namespace KR_2
                     fsWriteToDelete.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
                 }
                 fsWriteToDelete.Close();
+            }
+        }
+
+        private void entryChangeProductDGV(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (productDataGridView.SelectedRows.Count == 1)
+            {
+                foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+                {
+                    nameOfProductTextBox.Text = row.Cells[1].Value.ToString();
+                    priceOfProductTextBox.Text = row.Cells[2].Value.ToString();
+                }
+            }
+        }
+
+        private void changeProductBTN_Click(object sender, EventArgs e)
+        {
+            if (productDataGridView.SelectedRows.Count == 1)
+            {
+                foreach (DataGridViewRow row in productDataGridView.SelectedRows)
+                {
+                    row.Cells[1].Value = nameOfProductTextBox.Text;
+                    row.Cells[2].Value = priceOfProductTextBox.Text;
+                }
+            }
+            using (FileStream fsWriteToChange = File.Open(StoreStaticVariables.pathToProductDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
+            {                                                                                                                         // добавления клиента.
+                for (int i = 0; productDataGridView.Rows.Count > i; i++)
+                {
+                    Byte[] theClient = new UTF8Encoding(true).GetBytes(productDataGridView.Rows[i].Cells[0].Value + ";" +
+                        productDataGridView.Rows[i].Cells[1].Value + ";" + productDataGridView.Rows[i].Cells[2].Value + ";" + Environment.NewLine); // Подготавливаем для записи 
+                                                                                                                                                    // в базу данных.
+                    fsWriteToChange.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                }
+                fsWriteToChange.Close();
             }
         }
     }

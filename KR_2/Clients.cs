@@ -61,7 +61,7 @@ namespace KR_2
             }
             using (FileStream fsWriteToDelete = File.Open(StoreStaticVariables.pathToClientDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
             {                                                                                                                         // добавления клиента.
-                for (int i = 0; clientDataGridView.Rows.Count-1 > i; i++) {
+                for (int i = 0; clientDataGridView.Rows.Count > i; i++) {
                     Byte[] theClient = new UTF8Encoding(true).GetBytes(clientDataGridView.Rows[i].Cells[0].Value + ";" + 
                         clientDataGridView.Rows[i].Cells[1].Value + ";" + Environment.NewLine); // Подготавливаем для записи 
                                                                                           // в базу данных.
@@ -70,6 +70,39 @@ namespace KR_2
                 fsWriteToDelete.Close();
             }
             
+        }
+
+        private void ChgEntryClientBTN_Click(object sender, EventArgs e)
+        {
+            if (clientDataGridView.SelectedRows.Count == 1)
+            {
+                foreach (DataGridViewRow row in clientDataGridView.SelectedRows)
+                {
+                    row.Cells[1].Value = addNewClientTextBox.Text;                    
+                }
+            }
+            using (FileStream fsWriteToChange = File.Open(StoreStaticVariables.pathToClientDB, FileMode.Create, FileAccess.Write, FileShare.None)) // Поток записи в файл текущего 
+            {                                                                                                                         // добавления клиента.
+                for (int i = 0; clientDataGridView.Rows.Count > i; i++)
+                {
+                    Byte[] theClient = new UTF8Encoding(true).GetBytes(clientDataGridView.Rows[i].Cells[0].Value + ";" +
+                        clientDataGridView.Rows[i].Cells[1].Value + ";" + Environment.NewLine); // Подготавливаем для записи 
+                                                                                                // в базу данных.
+                    fsWriteToChange.Write(theClient, 0, theClient.Length); // записываем данные в базу данных
+                }
+                fsWriteToChange.Close();
+            }
+        }
+
+        private void entryChangeClientDGV(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (clientDataGridView.SelectedRows.Count == 1)
+            {
+                foreach (DataGridViewRow row in clientDataGridView.SelectedRows)
+                {
+                    addNewClientTextBox.Text = row.Cells[1].Value.ToString();                    
+                }
+            }
         }
     }
 }

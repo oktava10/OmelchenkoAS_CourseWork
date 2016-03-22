@@ -36,11 +36,13 @@
             this.removeClient = new System.Windows.Forms.Button();
             this.lastnameOfClientLabel = new System.Windows.Forms.Label();
             this.addNewClientTextBox = new System.Windows.Forms.TextBox();
+            this.ChgEntryClientBTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.clientDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // clientDataGridView
             // 
+            this.clientDataGridView.AllowUserToAddRows = false;
             this.clientDataGridView.AllowUserToResizeColumns = false;
             this.clientDataGridView.AllowUserToResizeRows = false;
             this.clientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -51,6 +53,7 @@
             this.clientDataGridView.Name = "clientDataGridView";
             this.clientDataGridView.Size = new System.Drawing.Size(249, 219);
             this.clientDataGridView.TabIndex = 0;
+            this.clientDataGridView.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.entryChangeClientDGV);
             // 
             // CodeOfClient
             // 
@@ -102,11 +105,22 @@
             this.addNewClientTextBox.Size = new System.Drawing.Size(243, 20);
             this.addNewClientTextBox.TabIndex = 4;
             // 
+            // ChgEntryClientBTN
+            // 
+            this.ChgEntryClientBTN.Location = new System.Drawing.Point(12, 300);
+            this.ChgEntryClientBTN.Name = "ChgEntryClientBTN";
+            this.ChgEntryClientBTN.Size = new System.Drawing.Size(75, 23);
+            this.ChgEntryClientBTN.TabIndex = 6;
+            this.ChgEntryClientBTN.Text = "Изменить";
+            this.ChgEntryClientBTN.UseVisualStyleBackColor = true;
+            this.ChgEntryClientBTN.Click += new System.EventHandler(this.ChgEntryClientBTN_Click);
+            // 
             // Clients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(274, 344);
+            this.Controls.Add(this.ChgEntryClientBTN);
             this.Controls.Add(this.lastnameOfClientLabel);
             this.Controls.Add(this.addNewClientTextBox);
             this.Controls.Add(this.removeClient);
@@ -131,5 +145,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Lastname;
         private System.Windows.Forms.Label lastnameOfClientLabel;
         private System.Windows.Forms.TextBox addNewClientTextBox;
+        private System.Windows.Forms.Button ChgEntryClientBTN;
     }
 }
